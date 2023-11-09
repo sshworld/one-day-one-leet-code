@@ -2,6 +2,8 @@ class Solution {
     fun twoSum(nums: IntArray, target: Int): IntArray {
         val numStorage = HashMap<Int, Int>()
         
+        nums.sortedArray()
+        
         nums.forEachIndexed { i, num ->
             val numberToAdd = numStorage[target - num]
 
