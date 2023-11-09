@@ -1,16 +1,13 @@
 class Solution {
     fun twoSum(nums: IntArray, target: Int): IntArray {
-        val numStorage = HashMap<Int, Int>()
-        
-        nums.forEachIndexed { i, num ->
-            val numberToAdd = numStorage[target - num]
-
-            numberToAdd?.let {
-                return intArrayOf(it, i)
+        for (i in 0..(nums.size - 2)) {
+            for (j in (i + 1)..(nums.size - 1)) {
+                if (nums[i] + nums[j] == target) {
+                    return intArrayOf(i, j)
+                }
             }
-            numStorage[num] = i
         }
         
-        return intArrayOf(-1, -1)
+        return intArrayOf()
     }
 }
