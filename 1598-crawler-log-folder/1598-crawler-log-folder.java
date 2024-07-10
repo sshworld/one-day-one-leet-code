@@ -4,7 +4,6 @@ class Solution {
         
         for(String log : logs) {
             if(log.equals("./")) {
-                result += 0;
                 continue;
             }
             
