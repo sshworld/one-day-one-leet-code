@@ -19,32 +19,20 @@ class Solution {
             return new ArrayList<>();
         }
         
-        Stack<Integer> stack = new Stack<>();
         List<Integer> result = new ArrayList<>();
-        stack.push(root.val);
-        pushStack(root, stack);
-        
-        
-        while(!stack.isEmpty()) {
-            result.add(stack.pop());
-        }
+        addNode(root, result);
         
         return result;
     }
     
-    private void pushStack(TreeNode node, Stack<Integer> stack) {
+    private void addNode(TreeNode node, List<Integer> nodeValues) {
         if (node == null) {
             return;
         }
         
-        if (node.right != null) {
-            stack.push(node.right.val);
-            pushStack(node.right, stack);
-        }
+        addNode(node.left, nodeValues);
+        addNode(node.right, nodeValues);
         
-        if (node.left != null) {
-            stack.push(node.left.val);
-            pushStack(node.left, stack);
-        }
+        nodeValues.add(node.val);
     }
 }
